@@ -71,7 +71,7 @@ $app->group('/links', static function (RouteCollectorProxyInterface $group): voi
                 'title' => 'Yandex',
                 'tags' => [
                     'search_engines',
-                    'yanxde',
+                    'yandex',
                 ],
             ],
         ];

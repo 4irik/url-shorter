@@ -5,13 +5,16 @@
             "Che\\UrlShorter\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "tests/"
+        }
+    },
     "require": {
         "slim/slim": "^4.9",
         "slim/psr7": "^1.5"
     },
     "require-dev": {
-        "docler-labs/codeception-slim-module": "^2.0",
-        "codeception/module-rest": "^2.0",
-        "codeception/module-phpbrowser": "^2.0"
+        "phpunit/phpunit": "^9.5"
     }
 }

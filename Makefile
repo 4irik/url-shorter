@@ -10,12 +10,15 @@ build: ## Build containers
 
 up: ## Start containers
 	docker-compose up -d
-	@printf "\n   \e[30;42m %s \033[0m\n\n" 'Navigate your browser to ⇒ http://127.0.0.1:8080';
+	@printf "\n   \e[30;42m %s \033[0m\n\n" 'Navigate your browser to ⇒ http://127.0.0.1:8888';
 
 down: ## Stop containers
 	docker-compose down
 
 restart: down up ## Restart all containers
 
-shell:
+shell: ## App container shell
 	docker-compose run $(DC_RUN_ARGS) app sh
+
+logs: ## App logs
+	docker-compose logs -f

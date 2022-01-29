@@ -31,9 +31,7 @@ class FeatureTestCase extends TestCase
         array $cookie = [],
         array $serverParams = [],
         string $body = '',
-
-    ): ResponseInterface
-    {
+    ): ResponseInterface {
         $fp = fopen('php://temp', 'r+');
         fwrite($fp, $body);
 

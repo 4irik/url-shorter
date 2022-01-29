@@ -22,3 +22,6 @@ shell: ## App container shell
 
 logs: ## App logs
 	docker-compose logs -f
+
+test: ## Run app tests
+	docker-compose run $(DC_RUN_ARGS) app vendor/bin/codecept run

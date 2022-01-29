@@ -1,0 +1,10 @@
+actor: FunctionalTester
+
+modules:
+  enabled:
+    - REST:
+        depends: DoclerLabs\CodeceptionSlimModule\Module\Slim
+
+  config:
+    DoclerLabs\CodeceptionSlimModule\Module\Slim:
+      application: /src/bootstrap.php

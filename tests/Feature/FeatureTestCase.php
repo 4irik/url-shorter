@@ -21,7 +21,14 @@ class FeatureTestCase extends TestCase
     {
         parent::setUpBeforeClass();
 
-        self::$app = require_once __DIR__ . '/../../src/bootstrap.php';
+        self::$app = require __DIR__ . '/../../src/bootstrap.php';
+    }
+
+    public static function tearDownAfterClass(): void
+    {
+        parent::tearDownAfterClass();
+
+        self::$app = null;
     }
 
     public function request(
@@ -52,6 +59,40 @@ class FeatureTestCase extends TestCase
     {
         return $this->request(
             'GET',
+            $url,
+            new Headers($headers),
+            $cookie
+        );
+    }
+
+    public function post(string $url, string $body, array $headers = [], array $cookie = []): ResponseInterface
+    {
+        return $this->request(
+            'POST',
+            $url,
+            new Headers($headers),
+            $cookie,
+            [],
+            $body
+        );
+    }
+
+    public function patch(string $url, string $body, array $headers = [], array $cookie = []): ResponseInterface
+    {
+        return $this->request(
+            'PATCH',
+            $url,
+            new Headers($headers),
+            $cookie,
+            [],
+            $body
+        );
+    }
+
+    public function delete(string $url, array $headers = [], array $cookie = []): ResponseInterface
+    {
+        return $this->request(
+            'DELETE',
             $url,
             new Headers($headers),
             $cookie

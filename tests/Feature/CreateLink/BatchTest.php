@@ -114,7 +114,7 @@ class BatchTest extends FeatureTestCase
             [
                 'long_url' =>'https://google.com',
                 'title' => 'Cool link to google',
-                'tags' =>  ['homepage', 'mylink'],
+                'tags' =>  ['homepage', 'mylink', 'mylink'],
             ],
         ];
 
@@ -124,9 +124,8 @@ class BatchTest extends FeatureTestCase
         $this->assertJsonStringEqualsJsonString(
             json_encode(
                 [
-                    [
-                        'long_url' => ['Value cannot be empty'],
-                    ]
+                    'Value "" does not match the format "uri"',
+                    'Array ["homepage","mylink","mylink"] is not unique.',
                 ],
                 JSON_THROW_ON_ERROR
             ),

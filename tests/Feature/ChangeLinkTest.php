@@ -100,7 +100,7 @@ class ChangeLinkTest extends FeatureTestCase
 
 
         $body = [
-            'long_url' =>'',
+            'long_url' =>'abc',
         ];
 
         $response = $this->jsonPatch('/links/abc3', $body);
@@ -109,9 +109,7 @@ class ChangeLinkTest extends FeatureTestCase
         $this->assertJsonStringEqualsJsonString(
             json_encode(
                 [
-                    'long_url' => [
-                        'Value cannot be empty',
-                    ],
+                    'Value "abc" does not match the format "uri"'
                 ],
                 JSON_THROW_ON_ERROR
             ),

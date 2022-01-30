@@ -8,6 +8,9 @@ help: ## Show this help
 build: ## Build containers
 	docker-compose build
 
+install: ## Install dependencies
+	docker-compose run $(DC_RUN_ARGS) app composer install -n
+
 up: ## Start containers
 	docker-compose up -d
 	@printf "\n   \e[30;42m %s \033[0m\n\n" 'Navigate your browser to ⇒ http://127.0.0.1:8888';

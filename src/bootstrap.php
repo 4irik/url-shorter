@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-use Slim\Factory\AppFactory;
+use DI\Bridge\Slim\Bridge;
 use Slim\Interfaces\RouteCollectorProxyInterface;
 use App\Controller;
 use App\Controller\Link;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$app = AppFactory::create();
+$app = Bridge::create();
 
 // работа со ссылками
 $app->group('/links', static function (RouteCollectorProxyInterface $group): void {

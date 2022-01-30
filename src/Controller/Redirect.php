@@ -9,9 +9,9 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class Redirect
 {
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, string $id): ResponseInterface
     {
-        if ($args['id'] === 'abc3') {
+        if ($id === 'abc3') {
             $response = $response->withHeader('Location', 'https://google.com');
             return $response->withStatus(302);
         }

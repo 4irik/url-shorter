@@ -18,5 +18,10 @@
         "phpunit/phpunit": "^9.5",
         "phpstan/phpstan": "^1.4",
         "friendsofphp/php-cs-fixer": "^3.5"
+    },
+    "scripts": {
+        "test": "@php vendor/bin/phpunit tests",
+        "type-check": "@php vendor/bin/phpstan analyse -c phpstan.neon",
+        "style-fix": "@php vendor/bin/php-cs-fixer fix"
     }
 }

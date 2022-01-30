@@ -24,10 +24,10 @@ logs: ## App logs
 	docker-compose logs -f
 
 test: ## Run app tests
-	docker-compose run $(DC_RUN_ARGS) app vendor/bin/phpunit tests
+	docker-compose run $(DC_RUN_ARGS) app composer test
 
 type-check: ## Run phpstan
-	docker-compose run $(DC_RUN_ARGS) app vendor/bin/phpstan analyse -c phpstan.neon
+	docker-compose run $(DC_RUN_ARGS) app composer type-check
 
-cs-fix: ## Run php-cs-fixer
-	docker-compose run $(DC_RUN_ARGS) app vendor/bin/php-cs-fixer fix
+style-fix: ## Run php-cs-fixer
+	docker-compose run $(DC_RUN_ARGS) app composer style-fix

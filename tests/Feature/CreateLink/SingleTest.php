@@ -63,7 +63,7 @@ class SingleTest extends FeatureTestCase
             ))
         ;
 
-        $response = $this->post('/links', json_encode($body, JSON_THROW_ON_ERROR));
+        $response = $this->jsonPost('/links', $body);
 
         $this->assertEquals(201, $response->getStatusCode());
         $this->assertJsonStringEqualsJsonString(
@@ -99,7 +99,7 @@ class SingleTest extends FeatureTestCase
             'title' => 'Cool link to google',
         ];
 
-        $response = $this->post('/links', json_encode($body, JSON_THROW_ON_ERROR));
+        $response = $this->jsonPost('/links', $body);
 
         $this->assertEquals(422, $response->getStatusCode());
         $this->assertJsonStringEqualsJsonString(

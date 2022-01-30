@@ -27,11 +27,7 @@ class Create
             return isset($array[0]);
         };
 
-        $data = json_decode(
-            $request->getBody()->__toString(),
-            true,
-            flags: JSON_THROW_ON_ERROR
-        );
+        $data = $request->getParsedBody();
 
         if (!$isMltidimensional($data)) {
             $data = [$data];

@@ -11,6 +11,8 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 $app = Bridge::create();
 
+$app->addBodyParsingMiddleware();
+
 // работа со ссылками
 $app->group('/links', static function (RouteCollectorProxyInterface $group): void {
     // создание одной или набора

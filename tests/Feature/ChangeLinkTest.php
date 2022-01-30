@@ -61,7 +61,7 @@ class ChangeLinkTest extends FeatureTestCase
             'tags' =>  ['homepage', 'mylink'],
         ];
 
-        $response = $this->patch('/links/abc3', json_encode($body, JSON_THROW_ON_ERROR));
+        $response = $this->jsonPatch('/links/abc3', $body);
 
         $this->assertEquals(204, $response->getStatusCode());
     }
@@ -80,7 +80,7 @@ class ChangeLinkTest extends FeatureTestCase
             'tags' =>  ['homepage', 'mylink'],
         ];
 
-        $response = $this->patch('/links/abc4', json_encode($body, JSON_THROW_ON_ERROR));
+        $response = $this->jsonPatch('/links/abc4', $body);
 
         $this->assertEquals(404, $response->getStatusCode());
     }
@@ -103,7 +103,7 @@ class ChangeLinkTest extends FeatureTestCase
             'long_url' =>'',
         ];
 
-        $response = $this->patch('/links/abc3', json_encode($body, JSON_THROW_ON_ERROR));
+        $response = $this->jsonPatch('/links/abc3', $body);
 
         $this->assertEquals(422, $response->getStatusCode());
         $this->assertJsonStringEqualsJsonString(

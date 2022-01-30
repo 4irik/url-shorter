@@ -69,7 +69,7 @@ class BatchTest extends FeatureTestCase
             )
         ;
 
-        $response = $this->post('/links', json_encode($body, JSON_THROW_ON_ERROR));
+        $response = $this->jsonPost('/links', $body);
 
         $this->assertEquals(201, $response->getStatusCode());
         $this->assertJsonStringEqualsJsonString(
@@ -118,7 +118,7 @@ class BatchTest extends FeatureTestCase
             ],
         ];
 
-        $response = $this->post('/links', json_encode($body, JSON_THROW_ON_ERROR));
+        $response = $this->jsonPost('/links', $body);
 
         $this->assertEquals(422, $response->getStatusCode());
         $this->assertJsonStringEqualsJsonString(

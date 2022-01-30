@@ -26,11 +26,7 @@ class Update
         }
 
 
-        $data = json_decode(
-            $request->getBody()->__toString(),
-            true,
-            flags: JSON_THROW_ON_ERROR
-        );
+        $data = $request->getParsedBody();
 
         if ($data['long_url'] === '') {
             $response->getBody()->write(json_encode(

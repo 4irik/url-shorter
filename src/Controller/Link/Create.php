@@ -23,15 +23,7 @@ class Create
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        $isMltidimensional  = static function (array $array): bool {
-            return isset($array[0]);
-        };
-
         $data = $request->getParsedBody();
-
-        if (!$isMltidimensional($data)) {
-            $data = [$data];
-        }
 
         if ($data[0]['long_url'] === '') {
             $response->getBody()->write(

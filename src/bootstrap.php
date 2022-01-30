@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Middleware\SingleToMultidimention;
 use DI\Bridge\Slim\Bridge;
 use Slim\Interfaces\RouteCollectorProxyInterface;
 use App\Controller;
@@ -16,7 +17,7 @@ $app->addBodyParsingMiddleware();
 // работа со ссылками
 $app->group('/links', static function (RouteCollectorProxyInterface $group): void {
     // создание одной или набора
-    $group->post('', Link\Create::class);
+    $group->post('', Link\Create::class)->add(new SingleToMultidimention);
     // правка
     $group->patch('/{id}', Link\Update::class);
     // удаление

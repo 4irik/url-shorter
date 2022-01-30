@@ -2,7 +2,7 @@
     "name": "4irik/url-shorter",
     "autoload": {
         "psr-4": {
-            "Che\\UrlShorter\\": "src/"
+            "App\\": "src/"
         }
     },
     "autoload-dev": {

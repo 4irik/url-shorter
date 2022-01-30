@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Test\Feature;
 
+use phpDocumentor\Reflection\Types\This;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use Slim\App;
@@ -15,20 +16,21 @@ use Slim\Psr7\Uri;
 
 class FeatureTestCase extends TestCase
 {
-    protected static ?App $app;
+    private ?App $app;
 
-    public static function setUpBeforeClass(): void
+    protected function setUp(): void
     {
-        parent::setUpBeforeClass();
-
-        self::$app = require __DIR__ . '/../../src/bootstrap.php';
+        $this->app = require __DIR__ . '/../../src/bootstrap.php';
     }
 
-    public static function tearDownAfterClass(): void
+    protected function tearDown(): void
     {
-        parent::tearDownAfterClass();
+        $this->app = null;
+    }
 
-        self::$app = null;
+    public function getApp(): App
+    {
+        return $this->app;
     }
 
     public function request(
@@ -52,7 +54,7 @@ class FeatureTestCase extends TestCase
         );
 
 
-        return self::$app->handle($serverRequest);
+        return $this->app->handle($serverRequest);
     }
 
     public function get(string $url, array $headers = [], array $cookie = []): ResponseInterface

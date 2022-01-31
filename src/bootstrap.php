@@ -7,6 +7,7 @@ use DI\Bridge\Slim\Bridge;
 use Slim\Interfaces\RouteCollectorProxyInterface;
 use App\Controller;
 use App\Controller\Link;
+use App\Controller\Stats;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -33,6 +34,11 @@ $app->group('/links', static function (RouteCollectorProxyInterface $group) use 
     $group->get('/{id}', Link\View::class);
     // получаем все записи
     $group->get('', Link\Enumeration::class);
+});
+
+$app->group('/stats', static function (RouteCollectorProxyInterface $group): void {
+    $group->get('', Stats\ViewAll::class);
+    $group->get('/{id}', Stats\ViewItem::class);
 });
 
 // редирект на конечный ресурс

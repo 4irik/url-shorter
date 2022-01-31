@@ -11,9 +11,18 @@ use App\Controller\Stats;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+/** @var array{single:array,multiple:array} $validationConfigs */
 $validationConfigs = include __DIR__ . '/../config/validations.php';
+/** @var array<string,mixed> $diConfig */
+$diConfig = include __DIR__ . '/../config/di.php';
 
 $app = Bridge::create();
+
+/** @var DI\Container $container */
+$container = $app->getContainer();
+foreach ($diConfig as $key => $item) {
+    $container->set($key, $item);
+}
 
 $app->addBodyParsingMiddleware();
 

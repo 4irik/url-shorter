@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Test\Feature\CreateLink;
+namespace Test\Functional\CreateLink;
 
 use App\Entity\Link;
 use App\Repository\LinkRepositoryInterface;
 use DI\Container;
-use Test\Feature\FeatureTestCase;
+use Test\Functional\FeatureTestCase;
 use App\Service\RandomString;
 
 class BatchTest extends FeatureTestCase

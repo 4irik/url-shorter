@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Test\Feature;
+namespace Test\Functional;
 
 use App\Entity\Link;
 use App\Repository\LinkRepositoryInterface;

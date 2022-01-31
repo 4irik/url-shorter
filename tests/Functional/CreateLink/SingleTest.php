@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Test\Feature\CreateLink;
+namespace Test\Functional\CreateLink;
 
 use App\Entity\Link;
 use App\Repository\LinkRepositoryInterface;
 use App\Service\RandomString;
 use DI\Container;
-use Test\Feature\FeatureTestCase;
+use Test\Functional\FeatureTestCase;
 
 class SingleTest extends FeatureTestCase
 {

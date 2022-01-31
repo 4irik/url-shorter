@@ -36,6 +36,8 @@ $app->group('/links', static function (RouteCollectorProxyInterface $group) use 
 });
 
 // редирект на конечный ресурс
-$app->get('/{id}', Controller\Redirect::class);
+$app->get('/{id}', Controller\Redirect::class)
+    ->add(Middleware\UpdateLinkStatistic::class)
+;
 
 return $app;

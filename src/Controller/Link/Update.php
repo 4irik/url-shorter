@@ -25,21 +25,7 @@ class Update
             return $response->withStatus(404);
         }
 
-
         $data = $request->getParsedBody();
-
-        if ($data['long_url'] === '') {
-            $response->getBody()->write(json_encode(
-                [
-                    'long_url' => [
-                        'Value cannot be empty'
-                    ],
-                ],
-                JSON_THROW_ON_ERROR
-            ));
-
-            return $response->withStatus(422);
-        }
 
         $this->repository->save(new Link(
             $link->id,

@@ -25,20 +25,6 @@ class Create
     {
         $data = $request->getParsedBody();
 
-        if ($data[0]['long_url'] === '') {
-            $response->getBody()->write(
-                json_encode(
-                    [
-                        [
-                            'long_url' => ['Value cannot be empty'],
-                        ]
-                    ],
-                    JSON_THROW_ON_ERROR
-                )
-            );
-            return $response->withStatus(422);
-        }
-
         $links = [];
         foreach ($data as $linkData) {
             $this->repository->save($links[] = new Link(

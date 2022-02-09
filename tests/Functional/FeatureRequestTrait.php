@@ -21,7 +21,7 @@ trait FeatureRequestTrait
         array $serverParams = [
             'REMOTE_ADDR' => '127.0.0.1',
             'HTTP_USER_AGENT' => 'Fake/4.5 [en] (X11; U; Linux 2.2.9 i586)',
-            'REQUEST_TIME' => 1643599711,
+            'REQUEST_TIME' => 1_643_599_711,
         ],
         string $body = '',
     ): ResponseInterface {

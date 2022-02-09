@@ -12,7 +12,7 @@ class FeatureTestCase extends TestCase
     use FeatureRequestTrait;
     use FeatureJsonRequestTrait;
 
-    private ?App $app;
+    private ?App $app = null;
 
     protected function setUp(): void
     {

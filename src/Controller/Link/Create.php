@@ -12,13 +12,8 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class Create
 {
-    private LinkRepositoryInterface $repository;
-    private GeneratorInterface $generator;
-
-    public function __construct(LinkRepositoryInterface $repository, GeneratorInterface $generator)
+    public function __construct(private readonly LinkRepositoryInterface $repository, private readonly GeneratorInterface $generator)
     {
-        $this->repository = $repository;
-        $this->generator = $generator;
     }
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface

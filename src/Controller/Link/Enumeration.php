@@ -10,11 +10,8 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class Enumeration
 {
-    private LinkRepositoryInterface $repository;
-
-    public function __construct(LinkRepositoryInterface $repository)
+    public function __construct(private readonly LinkRepositoryInterface $repository)
     {
-        $this->repository = $repository;
     }
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface

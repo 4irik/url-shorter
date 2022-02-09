@@ -15,7 +15,7 @@ use Slim\Routing\RouteContext;
 
 class UpdateLinkStatistic
 {
-    public function __construct(private VisitRepositoryInterface $repository)
+    public function __construct(private readonly VisitRepositoryInterface $repository)
     {
     }
 

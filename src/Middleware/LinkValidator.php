@@ -15,7 +15,7 @@ use GuzzleHttp\Psr7;
 
 class LinkValidator
 {
-    private object $schema;
+    private readonly object $schema;
 
     public function __construct(array $schema)
     {
@@ -24,7 +24,7 @@ class LinkValidator
 
     protected function arrayToObject(array $data): object
     {
-        return json_decode(json_encode($data, JSON_THROW_ON_ERROR), false);
+        return json_decode(json_encode($data, JSON_THROW_ON_ERROR), false, flags:JSON_THROW_ON_ERROR);
     }
 
 

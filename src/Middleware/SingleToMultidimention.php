@@ -15,9 +15,7 @@ class SingleToMultidimention
 {
     public function __invoke(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        $isMltidimensional  = static function (array $array): bool {
-            return isset($array[0]);
-        };
+        $isMltidimensional  = static fn (array $array): bool => isset($array[0]);
 
         $data = $request->getParsedBody();
 

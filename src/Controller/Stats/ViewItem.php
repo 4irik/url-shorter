@@ -10,7 +10,7 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class ViewItem
 {
-    public function __construct(private StatisticRepositoryInterface $repository)
+    public function __construct(private readonly StatisticRepositoryInterface $repository)
     {
     }
 

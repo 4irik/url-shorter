@@ -9,10 +9,13 @@ services:
       context: .
       dockerfile: Dockerfile
     user: "${APP_UID:-10001}:${APP_GID:-10001}"
+    environment:
+      HOME: /tmp
     volumes:
       - /etc/passwd:/etc/passwd:ro
       - /etc/group:/etc/group:ro
       - tmp-data:/tmp:rw
       - .:/app:rw
+    command: php -S 0.0.0.0:8080 public/index.php
     ports:
-      - 8080:8080/tcp
+      - 8888:8080/tcp
